@@ -1,6 +1,6 @@
-### Laptops
+# Laptops
 
-Acer
+## Acer
 
 Acer Aspire 1825PTZ
 Acer Aspire 4830T
@@ -18,18 +18,18 @@ Acer C710 Chromebook
 Acer C720-2848 Chromebook
 Acer TravelMate X349-G2-M
 
-Alienware
+## Alienware
 
 Alienware 14
 Alienware 17 R3
 Alienware 17 R4
 
-Apple
+## Apple
 
 Apple Macbook (late 2008)
 Apple MacBookPro8,3
 
-Asus
+## Asus
 
 Asus EEE-PC 1001PX
 Asus EEE-PC 1011PX
@@ -58,7 +58,7 @@ Asus X551CAP
 Asus ZenBook UX31A
 Asus ZenBook UX305FA
 
-Dell
+## Dell
 
 Dell Inspiron 14 3442
 Dell Inspiron 14 3452
@@ -83,23 +83,24 @@ Dell Precision M6500
 Dell Vostro 1700
 Dell XPS 15 9560
 
-eMachines
+## eMachines
 
 eMachines E728
 
-Fujitsu
+## Fujitsu
+
 Fujitsu Lifebook A531
 Fujitsu Lifebook T900
 
-Gigabyte
+## Gigabyte
 
 Gigabyte Aero 14K
 
-Google
+## Google
 
 Google Chromebook CR48
 
-HP
+## HP
 
 HP 240 G3
 HP Compaq 6730B
@@ -121,7 +122,7 @@ HP Presario V6000
 HP Probook 6360b
 HP ProBook 6450b
 
-Lenovo
+## Lenovo
 
 Lenovo 3000 V200
 Lenovo B41-80
@@ -165,11 +166,11 @@ Lenovo ThinkPad X280
 Lenovo Yoga 2 11
 Lenovo Z50-70
 
-MSI
+## MSI
 
 MSI GE70
 
-Samsung
+## Samsung
 
 Samsung NP270E5E-X02PL
 Samsung NP300E4C-AD5BR
@@ -178,21 +179,21 @@ Samsung NP365E5C-S04US
 Samsung NP900X3G
 Samsung NP900X4C-AU05
 
-Schenker
+## Schenker
 
 Schenker XMG A506-VE
 
-Sony
+## Sony
 
 Sony VAIO Pro 13
 Sony VAIO S Series 13
 Sony VAIO VPCEC3M1E
 
-Starlabs
+## Starlabs
 
 Star LabTop Mk IV
 
-System 76
+## System 76
 
 System 76 Gazelle Professional
 Toshiba
