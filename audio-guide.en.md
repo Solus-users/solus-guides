@@ -1,6 +1,6 @@
 # Pipewire instead other server for handling audio
 
-## How to enable
+## How to enable Pipewire
 
 1.Enable (without having to run under sudo) the user PipeWire service and socket with:
 ```bash 
