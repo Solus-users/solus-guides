@@ -2,10 +2,9 @@
 
 1. Download ISO-image from https://mirrors.rit.edu/solus/images/4.3/ or https://getsol.us/download/
 2. Download Etcher from https://www.balena.io/etcher/
-3. Insert your USB Flash Drive (clear needed)
-4. Write image Solus on this drive with Etcher
-5. Restart your system
-6. Select USB Flash to boot in UEFI menu (UEFI in name flash)
+3. Insert your USB Flash Drive (clear needed) and write image Solus on this drive with Etcher
+4. Restart your system
+5. Select USB Flash to boot in UEFI menu (UEFI in name flash)
 
 # Install Solus
 ## Partitioning
