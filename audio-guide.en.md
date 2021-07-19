@@ -2,24 +2,29 @@
 
 ## How to enable
 
-Enable (without having to run under sudo) the user PipeWire service and socket with:
+1.Enable (without having to run under sudo) the user PipeWire service and socket with:
 ```bash 
-systemctl --user enable pipewire```
+systemctl --user enable pipewire
+```
 
-When continue with the user PipeWire PulseAudio: 
+2. When continue with the user PipeWire PulseAudio: 
 ```bash 
-systemctl --user enable pipewire-pulse```
+systemctl --user enable pipewire-pulse
+```
 
-And the PipeWire Multimedia Service Session Manager: 
+3. And the PipeWire Multimedia Service Session Manager: 
 ```bash 
-systemctl --user enable pipewire-media-session```
+systemctl --user enable pipewire-media-session
+```
 
-Disable the PulseAudio socket and service with: 
+4. Disable the PulseAudio socket and service with: 
 ```bash 
-systemctl --user disable pulseaudio pulseaudio.socket```
+systemctl --user disable pulseaudio pulseaudio.socket
+```
 
-Install the pipewire-jack package if you want to test JACK support: 
+5. Install the pipewire-jack package if you want to test JACK support: 
 ```bash 
-sudo eopkg it pipewire-jack```
+sudo eopkg it pipewire-jack
+```
 
 6. Reboot
