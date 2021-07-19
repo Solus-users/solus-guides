@@ -19,5 +19,8 @@
 1. Choose your language and English keyboard (Important!)
 2. In section "Disks" choose "assign mount points"
 3. In section "Disk configuration" choose "mount point" for root (/) and (/home)
+4. In next screen (section "System settings") name your host and choose disk for bootloader. 
 
 # Known issues
+
+1. If you choose non-English keyboard layout your password is been in your language. If you living in countries with Cyrillic alphabetical you needed select screen keyboard in LightDM, press button "Win" and layout in switched in English
