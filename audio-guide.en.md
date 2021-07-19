@@ -35,18 +35,18 @@ sudo eopkg it pipewire-jack
 sudo micro /usr/share/pulseaudio/daemon.conf
 ```
 
-daemonize = no
-high-priority = yes
-nice-level = -11
-realtime-scheduling = yes
-realtime-priority = 9
-resample-method = soxr-vhq
-enable-remixing = no
-rlimit-rtprio = 9
-default-sample-format = float32le
-default-sample-rate = 48000 \\\ you can set more if the audio card allows, i'm using 192000
-alternate-sample-rate = 44100 \\\ you can set more if the audio card allows, i'm using 96000
-default-sample-channels = 2
-default-channel-map = front-left,front-right
-default-fragments = 2
-default-fragment-size-msec = 125
+* daemonize = no
+* high-priority = yes
+* nice-level = -11
+* realtime-scheduling = yes
+* realtime-priority = 9
+* resample-method = soxr-vhq
+* enable-remixing = no
+* rlimit-rtprio = 9
+* default-sample-format = float32le
+* default-sample-rate = 48000 \\\ you can set more if the audio card allows, i'm using 192000
+* alternate-sample-rate = 44100 \\\ you can set more if the audio card allows, i'm using 96000
+* default-sample-channels = 2
+* default-channel-map = front-left,front-right
+* default-fragments = 2
+* default-fragment-size-msec = 125
