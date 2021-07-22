@@ -17,3 +17,7 @@ To install fonts, I recommend using `gnome-font-viewer`
 # Terminal
 
 Read more: https://github.com/Solus-users/solus-guides/blob/main/en/terminal-without-pain.md
+
+**Other languages**:
+
+Русский: https://github.com/Solus-users/solus-guides/blob/main/ru/how-to-theming-solus.md
