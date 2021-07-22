@@ -50,3 +50,7 @@ sudo micro /usr/share/pulseaudio/daemon.conf
 * default-channel-map = front-left,front-right
 * default-fragments = 2
 * default-fragment-size-msec = 125
+
+**Other languages**:
+
+Русский: https://github.com/Solus-users/solus-guides/blob/main/ru/audio-guide.md
