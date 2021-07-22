@@ -12,6 +12,8 @@ sudo cp -r /home/$USER/'your archive' /usr/share/icons # for icons and cursors
 
 # Fonts
 
+To install fonts, I recommend using `gnome-font-viewer`
+
 # Terminal
 
 Read more: https://github.com/Solus-users/solus-guides/blob/main/en/terminal-without-pain.md
