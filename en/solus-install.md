@@ -23,3 +23,7 @@
 # Known issues
 
 1. If you choose non-English keyboard layout your password is been in your language. If you living in countries with Cyrillic alphabetical you needed select screen keyboard in LightDM, press button "Win" and layout in switched in English
+
+**Other languages**:
+
+Русский: https://github.com/Solus-users/solus-guides/blob/main/ru/solus-install.md
