@@ -1,6 +1,6 @@
 # Theme, icon and cursors
 
-Most themes, icons and cursors are available on https:pling.com
+Most themes, icons and cursors are available on https://pling.com
 For install themes use internal scripts or this coomand:
 
 ```bash
