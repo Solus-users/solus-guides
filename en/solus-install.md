@@ -22,7 +22,7 @@
 
 # Known issues
 
-1. If you choose non-English keyboard layout your password will be in your language. If you live in countries with CA, you should select screen keyboard in LightDM, press button "Win" and  the layout will be switched to English
+1. If you choose non-English keyboard layout your password will be in your language. If you live in countries with CA, you should select screen keyboard in LightDM, press the button "Win" and  the layout will be switched to English
 
 **Other languages**:
 
