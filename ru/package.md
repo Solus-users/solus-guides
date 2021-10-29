@@ -8,6 +8,7 @@
 
 Ниже приведен пример файла:
 
+```yml
 name       : nano
 version    : 2.9.5
 release    : 96
@@ -31,7 +32,7 @@ install    : |
     for rcFile in $pkgfiles/nanorc-extras/*.nanorc; do
         install -m 00644 $rcFile $installdir/usr/share/nano
     done
-
+```
 Ключи
 Не все поля в package.yml являются обязательными, но есть небольшой выбор. Ниже представлен полный список доступных полей.
     
