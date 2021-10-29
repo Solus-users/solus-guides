@@ -294,5 +294,4 @@ The values may also be expressed in list form, still using the same default key 
 
 The concepts in this document merely expose the syntax of a `package.yml` file. Solus adheres to strict packaging practices and conventions which packagers must follow. They are explained in the [Packaging Practices](/articles/packaging/packaging-practices/en/) article.
 
->>> Original from https://getsol.us/articles/packaging/package.yml/en/#optimize-values
-Translated into Russian Dr.Sheppard | GBOG@protonmail.com <<<
+>>> Original from https://getsol.us/articles/packaging/package.yml/en/#optimize-values Translated into Russian Dr.Sheppard | GBOG@protonmail.com <<<
