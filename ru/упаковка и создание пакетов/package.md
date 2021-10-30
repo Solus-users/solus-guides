@@ -37,6 +37,7 @@ install    : |
 Не все поля в package.yml являются обязательными, но есть небольшой выбор. Ниже представлен полный список доступных полей.
     
 ### Обязательные ключи
+
 | Название ключа | Тип | Описание |
 ----|----|----
 **name** | `строчное значение` | Имя пакета. Это также используется в качестве основы для всех имен вложенных пакетов. Если это не неизбежно, оно должно совпадать с именем восходящего потока |
@@ -48,7 +49,7 @@ install    : |
 **summary** | `строчное(-ые) значение(-я)`| Краткое описание пакета или отображаемое имя. 
 **description** | `строчное(-ые) значение(-я)` | Более подробное описание программного обеспечения, обычно берется с веб-сайта производителя. 
 
-## Дополнительные, сопровождающие ключи
+## Дополнительные, необязательные ключи
 
 | Название ключа | Тип | Описание |
 ----|----|----
@@ -67,51 +68,50 @@ install    : |
 **networking** | `Буллево значение` | Set to `yes` to enable networking within solbuild.
 **homepage** | `строчное значение` | Provides a link to the package's homepage in the Software Center.
 
-### Packaging Step Keys, optional
+### Ключи шагов упаковки, необязательные ключи
 
-The packaging steps are all considered optional, however the absence of the `install` step will result in no package generated. Each of these keys contains content that will be placed within a script and executed within a controlled environment to perform the package build. For all intents and purposes, they are Bash scripts with a predefined environment.
+Все шаги упаковки считаются необязательными, однако отсутствие шага `install` не приведет к созданию пакета. Каждый из этих ключей содержит контент, который будет помещен в сценарий и выполнен в контролируемой среде для выполнения сборки пакета. По сути, это сценарии Bash с предопределенной средой. 
 
-Step Name | Description
+Название шага | Описание
 ---- | ----
-**setup** | Performed after the source extraction. This is the correct place to perform any `configure` routine, or to `patch` the sources.
-**build** | Use this step to run the build portion, i.e. `make`
-**install** | This is where you should install the files into the final packaging directory, i.e. `make install`
-**check** | This is where tests / checking should occur, i.e. `make check`
-**profile** | This is where profiling tests should be specified. `ypkg` will handle setting flags to generate profiling data and using that data for an optimized build.
+**setup** | Выполняется после извлечения исходников. Это правильное место для выполнения любой процедуры `configure` или` patch` к исходнику. 
+**build** | Используйте этот шаг для запуска части сборки, то есть `make` 
+**install** | Здесь вы должны установить файлы в каталог окончательной упаковки, то есть `make install` 
+**check** | Здесь должны выполняться тесты / проверка, т.е. `make check` 
+**profile** | Здесь должны быть указаны тесты профилирования. `ypkg` будет обрабатывать флаги установки для генерации данных профилирования и использования этих данных для оптимизированной сборки.
 
 
-## Optimize values
+## Значения для оптимизации
+Одно или несколько значений оптимизации могут быть указаны в списке с помощью ключа оптимизации в файле `package.yml`. Некоторые значения могут переопределять или конфликтовать друг с другом, и их следует использовать только там, где они обеспечивают повышение производительности или исправляют ошибку в пакете или сборке.
 
-One or more optimize values can be specified in a list with the optimize key in the `package.yml` file. Several values can override or conflict with each other and should be used only where they provide a performance benefit, or fix a bug in the package or build.
-
-Optimize Value | Description
+Значения для оптимизации| Описание
 ---- | ----
-**speed** | Optimise the package for performance `-O3` plus other flags.
-**size** | Optimize the package build to minimize size `-Os`. Not supported with clang.
-**no-bind-now** | Configure the package to disable certain flags, where RELRO is unsupported.
-**no-symbolic** | Disable `-Wl,-Bsymbolic-functions` linker flag.
-**unroll-loops** | Enable `-funroll-loops`. Use this sparingly, only when it provides proven benefit.
-**runpath** | Enable `-Wl,--enable-new-dtags` to make linker use RUNPATH's instead of RPATH's.
-**avx256** | Disables `-mprefer-vector-width=128` in avx2 builds.
-**thin-lto** | Enable Thin Link Time Optimization `-flto=thin` with a supported linker.
-**lto** | Enable Link Time Optimization `-flto`.
+**speed** | Оптимизируйте пакет для производительности `-O3` плюс другие флаги.
+**size** | Оптимизируйте сборку пакета, чтобы минимизировать размер `-Os`. Не поддерживается с лязгом.
+**no-bind-now** | Настраивает пакет, чтобы отключить определенные флаги, где RELRO не поддерживается.
+**no-symbolic** | Отключает флаг компоновщика -Wl, -Bsymbolic-functions.
+**unroll-loops** |Включает `-funroll-loops`. Используйте это умеренно, только если это дает доказанную пользу.
+**runpath** | Включает `-Wl, - enable-new-dtags`, чтобы компоновщик использовал RUNPATH вместо RPATH.
+**avx256** | Отключает `-mprefer-vector-width = 128` в сборках avx2.
+**thin-lto** | Включает Thin Link Time Optimization `-flto=thin` с поддерживаемым компоновщиком. 
+**lto** | Включает Link Time Optimization `-flto`.
 
-## Macros
+## Макросы
 
-To further assist in packaging, a number of macros are available. These are simply shorthand ways to perform a normal build operation. They also ensure that the resulting package is consistent. These macros are only available in our packaging steps, as they are substituted within the script before execution.
+Для дополнительной помощи при упаковке доступен ряд макросов. Это просто сокращенные способы выполнения обычной операции сборки. Они также гарантируют согласованность итогового пакета. Эти макросы доступны только на наших этапах упаковки, поскольку они заменяются в сценарии перед выполнением.
 
-### Usage
+### Использование
 
-Macros are prefixed with `%`, and are substituted before your script is executed. Macros ending with `%` are used to provide directory names or build values, to the script.
+Макросы имеют префикс `%` и заменяются перед выполнением вашего скрипта. Макросы, заканчивающиеся на `%`, используются для предоставления скрипту имен каталогов или значений сборки.
 
 ``` bash
-# Run the configure macro with the given arguments
+# Запуск макроса конфигурации с заданными аргументами
 %configure --disable-static
 ```
 
-### Actionable Macros
+### Действующие макросы
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%autogen** | Runs autogen with our `%CONFOPTS%` to create a configure script then proceeds to run `%configure`.
 **%cmake** | Configure cmake project with the distribution specific options, such as prefix and release type.
@@ -125,7 +125,7 @@ Macro | Description
 
 ### Haskell Actionable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%cabal_configure** | Runs cabal configure with prefix, libdir, etc. and ensures the necessary package.conf.d is copied to the correct location.
 **%cabal_build** | Runs cabal build with `%JOBS%`
@@ -134,7 +134,7 @@ Macro | Description
 
 ### Ninja Actionable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%meson_configure** | Runs meson with our CFLAGS and appropriate flags such as libdir.
 **%ninja_build** | Runs ninja and passes our `%JOBS%` variable. This macro obsoletes *%meson_build*.
@@ -143,7 +143,7 @@ Macro | Description
 
 ### Perl Actionable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%perl_setup** | Runs Perl setup scripts Build.pl or Makefile.pl with the appropriate variable flags.
 **%perl_build** | Runs Perl build scripts or attempts `%make`.
@@ -151,7 +151,7 @@ Macro | Description
 
 ### Python Actionable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%python_setup** | Runs the build portion of a setup.py using python2.
 **%python_install** | Runs the install portion of a setup.py, to the appropriate root, using python2.
@@ -164,14 +164,14 @@ Macro | Description
 
 ### Ruby Actionable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%gem_build** | Runs gem build.
 **%gem_install** | Runs gem install with the appropriate parameters.
 
 ### Qt Actionable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%qmake** | Runs qmake for Qt5 with the appropriate make flags.
 **%qmake4** | Runs qmake for Qt4, as well as adding the necessary MOC, RCC, and UIC flags since those Qt4 executables end in -qt4.
@@ -179,7 +179,7 @@ Macro | Description
 
 ### Waf Actionable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%waf_configure** | Runs waf configure with prefix.
 **%waf_build** | Runs waf and passes our `%JOBS%` variable.
@@ -187,7 +187,7 @@ Macro | Description
 
 ### Variable Macros
 
-Macro | Description
+Макросы | Описание
 ---- | ----
 **%ARCH%** | Indicates the current build architecture.
 **%CC%** | C compiler
@@ -205,11 +205,11 @@ Macro | Description
 **%version%** | Version of the package, as specified in the version key.
 **%workdir%** | Hard-coded work directory (source tree)
 
-## Variables
+## Переменные
 
-A set of variables are exported in our build stages. These are used to provide context and structure to the scripts.
+Набор переменных экспортируется на наших этапах сборки. Они используются для обеспечения контекста и структуры сценариев
 
-Variable | Description
+Переменные | Описание
 ---- | ----
 **$CFLAGS** | cflags as set in `eopkg.conf`
 **$CXXFLAGS** | cxxflags as set in `eopkg.conf`
@@ -222,7 +222,7 @@ Variable | Description
 **$sources** | Refers to the directory where your source files are stored e.g. `$sources/nano.tar.gz`
 **$workdir** | The work, or source, directory of the package build
 
-## Types
+## Типы
 
 The `package.yml` file uses native YAML types, however it follows syntactic conventions and may accept multiple value types for a given key.
 
@@ -291,6 +291,6 @@ The values may also be expressed in list form, still using the same default key 
 
 ## Packaging Practices
 
-The concepts in this document merely expose the syntax of a `package.yml` file. Solus adheres to strict packaging practices and conventions which packagers must follow. They are explained in the Packaging Practices article.
+Концепции в этом документе просто раскрывают синтаксис файла `package.yml`. Solus придерживается строгих правил и правил упаковки, которым должны следовать упаковщики. Они описаны в статье "Практика упаковки".
 
- Original from https://getsol.us/articles/packaging/package.yml/en/ Translated into Russian Dr.Sheppard | GBOG@protonmail.com 
+Original from https://getsol.us/articles/packaging/package.yml/en/ Translated into Russian Dr.Sheppard | GBOG@protonmail.com 
