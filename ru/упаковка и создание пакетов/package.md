@@ -53,20 +53,20 @@ install    : |
 
 | Название ключа | Тип | Описание |
 ----|----|----
-**clang** | `Буллево значение` | Set to `yes` if this package benefits from being built with Clang.
-**extract** | `Буллево значение` | Set to `no` to disable automatic source extraction.
-**autodep** | `Буллево значение` | Set to `no` to disable automatic binary dependency resolution at build time.
-**emul32** | `Буллево значение` | Set to `yes` to enable an `-m32` build (32-bit libs).
-**libsplit** | `Буллево значение` | Set to `no` to disable splitting of libraries into `devel` sub-packages.
-**conflicts** | `строчное(-ые) значение(-я)` | Specify packages that cannot be installed together with this one.
-**optimize** | `заданный список значений` | Specify preset keys to modify compiler and linker flags during build. You can learn more here |
-**builddeps** | `list` | Specify build dependencies for the package. You can learn more here.
-**rundeps** | `dict(s)` | Specify further runtime dependencies for the packages. You can learn more here |
-**replaces** | `dict(s)` | Replace one package with another, used when renaming or deprecating packages for clean upgrade paths.
-**patterns** | `dict(s)` | Allows fine grained control over file placement within the package or sub-packages. Useful for packages that are development only (i.e. `/usr/bin` files). |
-**environment** | `Юникод` | Specify code that will be exported to all packaging steps of the build (i.e. exporting variables for the entire build).
-**networking** | `Буллево значение` | Set to `yes` to enable networking within solbuild.
-**homepage** | `строчное значение` | Provides a link to the package's homepage in the Software Center.
+**clang** | `Буллево значение` | Установите значение `yes`, если этот пакет будет построен с помощью Clang. 
+**extract** | `Буллево значение` | Установите значение «no», чтобы отключить автоматическое извлечение источника.
+**autodep** | `Буллево значение` | Установите значение `no`, чтобы отключить автоматическое разрешение двоичных зависимостей во время сборки.
+**emul32** | `Буллево значение` | Установите значение `yes`, чтобы включить сборку `-m32` (32-битные библиотеки).
+**libsplit** | `Буллево значение` | Установите значение `no`, чтобы запретить разбиение библиотек на подпакеты `devel`.
+**conflicts** | `строчное(-ые) значение(-я)` | Укажите пакеты, которые нельзя установить вместе с этим.
+**optimize** | `заданный список значений` | Укажите предустановленные ключи для изменения флагов компилятора и компоновщика во время сборки. Вы можете узнать больше здесь
+**builddeps** | `list` | Укажите зависимости сборки для пакета. Вы можете узнать больше здесь.
+**rundeps** | `dict(s)` | Укажите дополнительные зависимости времени выполнения для пакетов. Вы можете узнать больше здесь 
+**replaces** | `dict(s)` | Замените один пакет другим, который используется при переименовании или прекращении поддержки пакетов для чистых путей обновления.
+**patterns** | `dict(s)` | Позволяет детально контролировать размещение файлов в пакете или подпакетах. Полезно для пакетов, которые не имеют стабильного релиза (например, для файлов `/usr/bin`)
+**environment** | `Юникод` | Укажите код, который будет экспортирован на все этапы упаковки сборки (т.е. экспорт переменных для всей сборки).
+**networking** | `Буллево значение` | Установите значение `yes`, чтобы разрешить работу в сети в solbuild.
+**homepage** | `строчное значение` | Предоставляет ссылку на домашнюю страницу пакета в Центре программного обеспечения
 
 ### Ключи шагов упаковки, необязательные ключи
 
@@ -113,12 +113,12 @@ install    : |
 
 Макросы | Описание
 ---- | ----
-**%autogen** | Runs autogen with our `%CONFOPTS%` to create a configure script then proceeds to run `%configure`.
-**%cmake** | Configure cmake project with the distribution specific options, such as prefix and release type.
-**%cmake_ninja** | Configure cmake project with ninja so it can be used with `%ninja_build`, `%ninja_install` and `%ninja_check` macros.
-**%configure** | Runs `./configure` with our `%CONFOPTS%` variable macro.
-**%make** | Runs the `make` command with the job count specified in `eopkg.conf`
-**%make_install** | Perform a `make install`, using the `DESTDIR` variant. Should work for the vast majority of packages.
+**%autogen** | Запускает автогенерацию с нашим `%CONFOPTS%` для создания скрипта настройки, затем переходит к запуску `%configure`.
+**%cmake** | Настройте проект cmake с параметрами, специфичными для дистрибутива, такими как префикс и тип выпуска.
+**%cmake_ninja** | Настройте проект cmake с помощью ninja, чтобы его можно было использовать с макросами `%ninja_build`,`%ninja_install` и `%ninja_check`.
+**%configure** | Запускает `. / Configure` с нашим макросом переменной`%CONFOPTS%`.
+**%make** | Запускает команду `make` со счетчиком заданий, указанным в `eopkg.conf`
+**%make_install** | Выполняет `make install`, используя вариант` DESTDIR`. Должен работать для подавляющего большинства пакетов.
 **%patch** | Sane patch macro to run in batch mode and not contaminate source tree on failure
 **%apply_patches** | Applies all patches listed in the `series` file in `./files` folder.
 **%reconfigure** | Updates build scripts such as `./configure` and proceeds to run `%configure`.
