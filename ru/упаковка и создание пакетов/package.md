@@ -119,37 +119,37 @@ install    : |
 **%configure** | Запускает `. / Configure` с нашим макросом переменной`%CONFOPTS%`.
 **%make** | Запускает команду `make` со счетчиком заданий, указанным в `eopkg.conf`
 **%make_install** | Выполняет `make install`, используя вариант` DESTDIR`. Должен работать для подавляющего большинства пакетов.
-**%patch** | Sane patch macro to run in batch mode and not contaminate source tree on failure
-**%apply_patches** | Applies all patches listed in the `series` file in `./files` folder.
-**%reconfigure** | Updates build scripts such as `./configure` and proceeds to run `%configure`.
+**%patch** | Разумный макрос исправления для запуска в пакетном режиме и не загрязняет дерево исходных текстов в случае сбоя
+**%apply_patches** | Применяет все патчи, перечисленные в файле `series` в папке`./Files`.
+**%reconfigure** | Обновляет сценарии сборки, такие как `./Configure`, и переходит к запуску`%configure`.
 
-### Haskell Actionable Macros
-
-Макросы | Описание
----- | ----
-**%cabal_configure** | Runs cabal configure with prefix, libdir, etc. and ensures the necessary package.conf.d is copied to the correct location.
-**%cabal_build** | Runs cabal build with `%JOBS%`
-**%cabal_install** | Runs cabal copy to `$installdir`
-**%cabal_register** | Runs cabal register to generate a pkg-config for package and version, then installs the conf file.
-
-### Ninja Actionable Macros
+### Действующие макросы Haskell
 
 Макросы | Описание
 ---- | ----
-**%meson_configure** | Runs meson with our CFLAGS and appropriate flags such as libdir.
-**%ninja_build** | Runs ninja and passes our `%JOBS%` variable. This macro obsoletes *%meson_build*.
-**%ninja_install** | Runs meson install and passed the appropriate `DESTDIR` and `%JOBS%` variable. This macro obsoletes *%meson_install*.
-**%ninja_check** | Runs ninja test and passes our `%JOBS%` variable. This macro obsoletes *%meson_check*.
+**%cabal_configure** | Запускает cabal configure с префиксом, libdir и т.д. Обеспечивает копирование необходимого package.conf.d в правильное место.
+**%cabal_build** | Запускает сборку кабалы с помощью `%JOBS%`
+**%cabal_install** | Запускает копию Кабала в `$installdir`
+**%cabal_register** | Запускает регистр cabal для создания pkg-config для пакета и версии, затем устанавливает файл conf.
 
-### Perl Actionable Macros
+### Действующие макросы Ninja
 
 Макросы | Описание
 ---- | ----
-**%perl_setup** | Runs Perl setup scripts Build.pl or Makefile.pl with the appropriate variable flags.
-**%perl_build** | Runs Perl build scripts or attempts `%make`.
-**%perl_install** | Runs Perl install scripts or attempts `%make_install`.
+**%meson_configure** | Запускает meson с нашими CFLAGS и соответствующими флагами, такими как libdir.
+**%ninja_build** | Запускает ninja и передает нашу переменную %JOBS%. Этот макрос устарел *%meson_build*.
+**%ninja_install** | Запускает установку meson и передает соответствующие переменные DESTDIR и %JOBS%. Этот макрос устарел *%meson_install*.
+**%ninja_check** | Запускает тест ninja и передает нашу переменную %JOBS%. Этот макрос устарел *%meson_check*.
 
-### Python Actionable Macros
+### Действующие макросы Perl
+
+Макросы | Описание
+---- | ----
+**%perl_setup** | Запускает сценарии установки Perl Build.pl или Makefile.pl с соответствующими флагами переменных.
+**%perl_build** | Запускает сценарии сборки Perl или пытается `%make`.
+**%perl_install** | Запускает сценарии установки Perl или пытается выполнить `% make_install`.
+
+### Действующие макросы Python
 
 Макросы | Описание
 ---- | ----
@@ -162,14 +162,14 @@ install    : |
 **%python3_test** | Without argument, runs the test portion of setup.py. With a `.py` script, execute the script with python3. With something else execute the command "as it is". ([More info](https://github.com/getsolus/ypkg/pull/1))
 **%python3_compile** | Compiles `*.py` files using python3. This is only useful where the build doesn't compile them already (indicated by availability of `*.pyc` files).
 
-### Ruby Actionable Macros
+### Действующие макросы Ruby
 
 Макросы | Описание
 ---- | ----
 **%gem_build** | Runs gem build.
 **%gem_install** | Runs gem install with the appropriate parameters.
 
-### Qt Actionable Macros
+### Действующие макросы Qt
 
 Макросы | Описание
 ---- | ----
@@ -177,7 +177,7 @@ install    : |
 **%qmake4** | Runs qmake for Qt4, as well as adding the necessary MOC, RCC, and UIC flags since those Qt4 executables end in -qt4.
 **%qml_cache** | Compiles `*.qml` files into `*.qmlc` so they are compiled ahead of time.
 
-### Waf Actionable Macros
+### Действующие макросы Waf
 
 Макросы | Описание
 ---- | ----
