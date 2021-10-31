@@ -40,33 +40,33 @@ install    : |
 
 | Название ключа | Тип | Описание |
 ----|----|----
-**name** | `строчное значение` | Имя пакета. Это также используется в качестве основы для всех имен вложенных пакетов. Если это не неизбежно, оно должно совпадать с именем восходящего потока |
-**version** | `строчное значение` | Версия текущего упакованного программного обеспечения. В большинстве случаев он взят из архива |
-**release** | `целочисленное значение` | Задает номер текущего выпуска. Обновления в номере пакета основаны на этом номере выпуска, а не на номере версии. Таким образом, чтобы выпускать обновление для пользователей, это число должно быть увеличено на единицу.
-**license** | `строчное(-ые) значение(-я)`  | Действующая лицензия (-и) на апстрим. Постарайтесь убедиться, что они используют идентификаторы SPDX |
-**source** | dict(s) | URL-адрес источника восходящего потока (т. Е. Tarball) с допустимым значением sha256sum. В качестве альтернативы URL-адрес репозитория git с префиксом git 
-**component** | `строчное(-ые) значение(-я)` | Компонент / группа пакетов, к которой принадлежит этот пакет. Проверьте доступные компоненты через ```eopkg lc``` 
-**summary** | `строчное(-ые) значение(-я)`| Краткое описание пакета или отображаемое имя. 
-**description** | `строчное(-ые) значение(-я)` | Более подробное описание программного обеспечения, обычно берется с веб-сайта производителя. 
+**name** | `string` | Имя пакета. Это также используется в качестве основы для всех имен вложенных пакетов. Если это не неизбежно, оно должно совпадать с именем восходящего потока |
+**version** | `string` | Версия текущего упакованного программного обеспечения. В большинстве случаев он взят из архива |
+**release** | `integer` | Задает номер текущего выпуска. Обновления в номере пакета основаны на этом номере выпуска, а не на номере версии. Таким образом, чтобы выпускать обновление для пользователей, это число должно быть увеличено на единицу.
+**license** | `string(s)`	  | Действующая лицензия (-и) на апстрим. Постарайтесь убедиться, что они используют идентификаторы SPDX |
+**source** | `dict(s)` | URL-адрес источника восходящего потока (т. Е. Tarball) с допустимым значением sha256sum. В качестве альтернативы URL-адрес репозитория git с префиксом git 
+**component** | `string	` | Компонент / группа пакетов, к которой принадлежит этот пакет. Проверьте доступные компоненты через ```eopkg lc``` 
+**summary** | `сstring`| Краткое описание пакета или отображаемое имя. 
+**description** | `string` | Более подробное описание программного обеспечения, обычно берется с веб-сайта производителя. 
 
 ## Дополнительные, необязательные ключи
 
 | Название ключа | Тип | Описание |
 ----|----|----
-**clang** | `Буллево значение` | Установите значение `yes`, если этот пакет будет построен с помощью Clang. 
-**extract** | `Буллево значение` | Установите значение «no», чтобы отключить автоматическое извлечение источника.
-**autodep** | `Буллево значение` | Установите значение `no`, чтобы отключить автоматическое разрешение двоичных зависимостей во время сборки.
-**emul32** | `Буллево значение` | Установите значение `yes`, чтобы включить сборку `-m32` (32-битные библиотеки).
-**libsplit** | `Буллево значение` | Установите значение `no`, чтобы запретить разбиение библиотек на подпакеты `devel`.
-**conflicts** | `строчное(-ые) значение(-я)` | Укажите пакеты, которые нельзя установить вместе с этим.
-**optimize** | `заданный список значений` | Укажите предустановленные ключи для изменения флагов компилятора и компоновщика во время сборки. Вы можете узнать больше здесь
+**clang** | `bool` | Установите значение `yes`, если этот пакет будет построен с помощью Clang. 
+**extract** | `bool` | Установите значение «no», чтобы отключить автоматическое извлечение источника.
+**autodep** | `bool` | Установите значение `no`, чтобы отключить автоматическое разрешение двоичных зависимостей во время сборки.
+**emul32** | `bool` | Установите значение `yes`, чтобы включить сборку `-m32` (32-битные библиотеки).
+**libsplit** | `bool` | Установите значение `no`, чтобы запретить разбиение библиотек на подпакеты `devel`.
+**conflicts** | `string(s)` | Укажите пакеты, которые нельзя установить вместе с этим.
+**optimize** | `list` | Укажите предустановленные ключи для изменения флагов компилятора и компоновщика во время сборки. Вы можете узнать больше здесь
 **builddeps** | `list` | Укажите зависимости сборки для пакета. Вы можете узнать больше здесь.
 **rundeps** | `dict(s)` | Укажите дополнительные зависимости времени выполнения для пакетов. Вы можете узнать больше здесь 
 **replaces** | `dict(s)` | Замените один пакет другим, который используется при переименовании или прекращении поддержки пакетов для чистых путей обновления.
 **patterns** | `dict(s)` | Позволяет детально контролировать размещение файлов в пакете или подпакетах. Полезно для пакетов, которые не имеют стабильного релиза (например, для файлов `/usr/bin`)
-**environment** | `Юникод` | Укажите код, который будет экспортирован на все этапы упаковки сборки (т.е. экспорт переменных для всей сборки).
-**networking** | `Буллево значение` | Установите значение `yes`, чтобы разрешить работу в сети в solbuild.
-**homepage** | `строчное значение` | Предоставляет ссылку на домашнюю страницу пакета в Центре программного обеспечения
+**environment** | `unicode` | Укажите код, который будет экспортирован на все этапы упаковки сборки (т.е. экспорт переменных для всей сборки).
+**networking** | `bool` | Установите значение `yes`, чтобы разрешить работу в сети в solbuild.
+**homepage** | `string` | Предоставляет ссылку на домашнюю страницу пакета в Центре программного обеспечения
 
 ### Ключи шагов упаковки, необязательные ключи
 
@@ -153,57 +153,57 @@ install    : |
 
 Макросы | Описание
 ---- | ----
-**%python_setup** | Runs the build portion of a setup.py using python2.
-**%python_install** | Runs the install portion of a setup.py, to the appropriate root, using python2.
-**%python_test** | Without argument, runs the test portion of setup.py. With a `.py` script, execute the script with python2. With something else execute the command "as it is". ([More info](https://github.com/getsolus/ypkg/pull/1))
-**%python_compile** | Compiles `*.py` files using python2. This is only useful where the build doesn't compile them already (indicated by availability of `*.pyc` files).
-**%python3_setup** | Runs the build portion of a setup.py using python3.
-**%python3_install** | Runs the install portion of a setup.py, to the appropriate root, using python3.
-**%python3_test** | Without argument, runs the test portion of setup.py. With a `.py` script, execute the script with python3. With something else execute the command "as it is". ([More info](https://github.com/getsolus/ypkg/pull/1))
-**%python3_compile** | Compiles `*.py` files using python3. This is only useful where the build doesn't compile them already (indicated by availability of `*.pyc` files).
+**%python_setup** | Запускает часть сборки setup.py с использованием python2.
+**%python_install** | Запускает установочную часть setup.py в соответствующий корень с помощью python2.
+**%python_test** |Без аргументов запускает тестовую часть setup.py. Используя сценарий `.py`, выполните сценарий с помощью python2. В другом случае выполните команду «как есть». ([Подробнее](https://github.com/getsolus/ypkg/pull/1))
+**%python_compile** | Компилирует файлы `* .py` с использованием python2. Это полезно только тогда, когда сборка их еще не компилирует (на это указывает наличие файлов `* .pyc`).
+**%python3_setup** | Запускает часть сборки setup.py с использованием python3.
+**%python3_install** | Запускает установочную часть setup.py в соответствующий корень с помощью python3.
+**%python3_test** | Без аргументов запускает тестовую часть setup.py. Используя сценарий `.py`, выполните сценарий с помощью python3. В другом случае выполните команду «как есть». ([Подробнее](https://github.com/getsolus/ypkg/pull/1))
+**%python3_compile** | Компилирует файлы `*.py` с использованием python3. Это полезно только тогда, когда сборка их еще не компилирует (на это указывает наличие файлов `*.pyc`).
 
 ### Действующие макросы Ruby
 
 Макросы | Описание
 ---- | ----
-**%gem_build** | Runs gem build.
-**%gem_install** | Runs gem install with the appropriate parameters.
+**%gem_build** | Запускает сборку gem.
+**%gem_install** | Запускает установку gem с соответствующими параметрами.
 
 ### Действующие макросы Qt
 
 Макросы | Описание
 ---- | ----
-**%qmake** | Runs qmake for Qt5 with the appropriate make flags.
-**%qmake4** | Runs qmake for Qt4, as well as adding the necessary MOC, RCC, and UIC flags since those Qt4 executables end in -qt4.
-**%qml_cache** | Compiles `*.qml` files into `*.qmlc` so they are compiled ahead of time.
+**%qmake** | Запускает qmake для Qt5 с соответствующими флагами make.
+**%qmake4** | Запускает qmake для Qt4, а также добавляет необходимые флаги MOC, RCC и UIC, поскольку эти исполняемые файлы Qt4 заканчиваются на -qt4.
+**%qml_cache** | Компилирует файлы `*.qml` в `*.qmlc`, чтобы они компилировались заранее.
 
 ### Действующие макросы Waf
 
 Макросы | Описание
 ---- | ----
-**%waf_configure** | Runs waf configure with prefix.
-**%waf_build** | Runs waf and passes our `%JOBS%` variable.
-**%waf_install** | Runs waf install and passed the appropriate `destdir` and `%JOBS%` variable
+**%waf_configure** | Запускает настройку waf с префиксом.
+**%waf_build** | Запускает waf и передает нашу переменную %JOBS%.
+**%waf_install** | Запускает установку waf и передает соответствующие переменные `destdir` и`%JOBS%`
 
 ### Variable Macros
 
 Макросы | Описание
 ---- | ----
-**%ARCH%** | Indicates the current build architecture.
-**%CC%** | C compiler
-**%CFLAGS%** | cflags as set in `eopkg.conf`
-**%CONFOPTS%** | Flags / options for configuration, such as `--prefix=%PREFIX%`. [Full List.](https://github.com/getsolus/ypkg/blob/master/ypkg2/rc.yml#L327-L329)
-**%CXX%** | C++ compiler
-**%CXXFLAGS%** | cxxflags as set in `eopkg.conf`
-**%JOBS%** | jobs, as set in `eopkg.conf`
-**%LDFLAGS%** | ldflags as set in `eopkg.conf`
-**%LIBSUFFIX%** | Library suffix (either 32 for 32-bit or 64 for 64-bit)
-**%PREFIX%** | Hard-coded prefix `/usr`
-**%YJOBS%** | Job count without `-j` as set in `eopkg.conf`
-**%installroot%** | Hard-coded install directory
-**%libdir%** | The distribution’s default library directory, i.e. `/usr/lib64` (Alters for `emul32`)
-**%version%** | Version of the package, as specified in the version key.
-**%workdir%** | Hard-coded work directory (source tree)
+**%ARCH%** | Указывает текущую архитектуру сборки.
+**%CC%** | Cи-компилятор
+**%CFLAGS%** | cflags, как установлено в `eopkg.conf`
+**%CONFOPTS%** | Флаги/параметры для конфигурации, такие как `--prefix =% PREFIX%`. [Полный список.](Https://github.com/getsolus/ypkg/blob/master/ypkg2/rc.yml#L327-L329)
+**%CXX%** | C++-компилятор
+**%CXXFLAGS%** | cxxflags, как установлено в `eopkg.conf`
+**%JOBS%** | jobs, как установлено в `eopkg.conf`
+**%LDFLAGS%** | ldflags, как установлено в `eopkg.conf`
+**%LIBSUFFIX%** | Суффикс библиотеки (32 для 32-разрядной версии или 64 для 64-разрядной версии)
+**%PREFIX%** | Жестко запрограммированный префикс `/ usr`
+**%YJOBS%** | Количество заданий без `-j`, как установлено в` eopkg.conf`
+**%installroot%** | Жестко запрограммированный каталог установки
+**%libdir%** | Каталог библиотеки по умолчанию для дистрибутива, то есть `/ usr / lib64` (изменяет для` emul32`)
+**%version%** | Версия пакета, указанная в ключе версии.
+**%workdir%** | Жестко запрограммированный рабочий каталог (дерево исходных текстов)
 
 ## Переменные
 
@@ -224,69 +224,68 @@ install    : |
 
 ## Типы
 
-The `package.yml` file uses native YAML types, however it follows syntactic conventions and may accept multiple value types for a given key.
+Файл `package.yml` использует собственные типы YAML, однако он следует синтаксическим соглашениям и может принимать несколько типов значений для данного ключа.
 
 ### string
-
-This is simply text, which does not need to be quoted.
+Это просто текст, который не нужно объяснять.
 
 ### string(s)
 
-Indicates that it is possible to use a `list` of strings, or one single `string`.
+Указывает, что можно использовать `список` строк или одну единственную `строку`.
 
 ### integer
 
-Whole, positive number, used in the `release` field.
+Целое положительное число, используемое в поле «release».
 
 ### list
 
-A YAML list (or array) can be expressed in multiple ways. A short array-notation would look like this:
+Список (или массив) YAML может быть выражен несколькими способами. Краткая запись массива будет выглядеть так:
 
-`[one, two, three]`
+`[1, 2, 3]`
 
-They can also be expressed like this:
+Также их можно выразить так:
 
 ``` yaml
-- First Value
-- Second Value
-- Third Value
+- Первое значение
+- Второе значение
+- Третье значение
 ```
 
 ### dict
 
-Known as an associative array, this is key to value mapping. These are separated by a colon (`:`), the token on the left is taken to be a key, and the token on the right is the value.
+Известный как ассоциативный массив, это ключ к отображению значений. Они разделены двоеточием (`:`), токен слева считается ключом, а токен справа - значением.
 
-`SomeKey: Some Value`
+`Ключ: корреспондирующее ему значение`
 
-Note that each `ypkg key` in the YAML file is actually a dict.
+Обратите внимание, что каждый `ключ ypkg` в файле YAML на самом деле является dict.
 
 ### dict(s)
 
-`dict(s)` consists of a list of `dict`s and some assumptions. We primarily make use of this to express advanced information within the package. These permit you to provide no key, and a value only.
-In this instance, the key is implicitly assumed to be the package name (e.g. `nano`):
+dict (s) состоит из списка dict и некоторых предположений. Мы в первую очередь используем это, чтобы выразить расширенную информацию внутри пакета. Они позволяют вам указывать не ключ, а только значение.
+В этом случае неявно предполагается, что ключ является именем пакета (например, `nano`):
 
-`- some value`
+`- некоторое значение`
 
-An explicit key, usually a sub-package name:
+Явный ключ, обычно имя подпакета:
 
-`- somekey: somevalue`
+`- некотороеимя: некоторое значение`
 
-A mix of both:
+Смесь обоих:
 
 ``` yaml
-- somevalue
-- somekey: another value
+- некоторое значение
+- некотороеимя: другое значение`
 ```
 
-The values may also be expressed in list form, still using the same default key logic:
+Значения также могут быть выражены в виде списка с использованием той же логики ключей по умолчанию:
 
 ``` yaml
-- [one,two, three]
-- somekey: [one,two, three]
-- key:
-    - value one
-    - value two
-    - value three
+- [один, два, три]
+- некоторый ключ: [один, два, три]
+- другие ключи:
+    - значение один
+    - значение два
+    - значение три
 ```
 
 ## Packaging Practices
