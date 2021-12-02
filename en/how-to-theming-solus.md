@@ -20,7 +20,7 @@ sudo cp -r /home/$USER/'your directory' /usr/share/icons # for icons and cursors
 
 # Fonts
 
-Many fonts which use without subscription or buy is available in (Google Fonts)[https://fonts.google.com]
+Many fonts which use without subscription or buy is available in (https://fonts.google.com)[Google Fonts]
 To install fonts, I recommend using `gnome-font-viewer`
 
 # Terminal
