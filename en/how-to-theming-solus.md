@@ -1,9 +1,9 @@
 # Theme, icon and cursors
 
-Most themes, icons and cursors are available on pling.com:
+Most themes, icons and cursors are available on www.pling.com:
 
-For GTK desktops environments(MATE, GNOME, Budgie): https://www.pling.com/browse?cat=366&ord=latest
-For Qt Desktop (KDE): https://www.pling.com/browse?cat=121&ord=latest
+* For GTK desktops environments(MATE, GNOME, Budgie): https://www.pling.com/browse?cat=366&ord=latest
+* For Qt Desktop (KDE): https://www.pling.com/browse?cat=121&ord=latest
 
 i recommend looking at [Orchis](https://www.pling.com/p/1357889), [Skeuos](https://www.pling.com/p/1441725/), themes for GTK and [Edna](https://www.pling.com/p/1367060), [Otto](https://www.pling.com/p/1360125), [Moe](https://www.pling.com/p/1338879) themes for KDE Plasma
 
