@@ -3,7 +3,12 @@
 ## Enable Pipewire
 
 ```bash
-sudo eopkg it `pipewire`, `wireplumber` && systemctl --user enable pipewire && systemctl --user enable --now wireplumber && systemctl --user disable pulseaudio pulseaudio.socket && systemctl --user enable pipewire-pulse.socket pipewire-pulse && reboot
+sudo eopkg it pipewire, wireplumber
+systemctl --user enable pipewire
+systemctl --user enable --now wireplumber
+systemctl --user disable pulseaudio pulseaudio.socket
+systemctl --user enable pipewire-pulse.socket pipewire-pulse
+reboot
 ```
 
 
